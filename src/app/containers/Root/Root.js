@@ -1,12 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-function Root(props) {
-    return (
-        <div>
-            <p>Hello World</p>
-        </div>
-    );
+function Root() {
+  return (
+    <div>
+      <p>Hello World</p>
+    </div>
+  );
 }
 
 // Root.propTypes = {
