@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, hashHistory } from 'react-router';
-import Root from './containers/Root/Root';
+import Root from './containers/Root';
 
 function Routing() {
   return (
