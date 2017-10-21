@@ -1,11 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function Root() {
+function Root(props) {
   return (
     <div>
-      <p>Hello World!!</p>
+      {props.children}
     </div>
   );
 }
+
+Root.propTypes = {
+  children: PropTypes.node
+};
 
 export default Root;
