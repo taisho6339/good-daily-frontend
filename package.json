@@ -1,11 +1,11 @@
 {
   "name": "goodbuy",
   "version": "1.0.0",
-  "description": "good buy.",
+  "description": "good buy",
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server --hot"
+    "start": "webpack-dev-server --hot --progress"
   },
   "keywords": [],
   "author": "",
