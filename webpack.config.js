@@ -1,6 +1,6 @@
 const path = require('path');
-const autoprefixer = require('autoprefixer');
-const webpack = require('webpack');
+// const autoprefixer = require('autoprefixer');
+// const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
@@ -33,13 +33,13 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin('style.css'),
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        postcss: [
-          autoprefixer({ browsers: ['last 2 versions'] }),
-        ],
-      },
-    }),
+    // new webpack.LoaderOptionsPlugin({
+    //   options: {
+    //     postcss: [
+    //       autoprefixer({ browsers: ['last 2 versions'] }),
+    //     ],
+    //   },
+    // }),
   ],
   devServer: {
     port: 3000,
