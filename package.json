@@ -5,13 +5,15 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server --hot --progress"
+    "start": "webpack-dev-server --hot --progress",
+    "eslint": "eslint --ext js -c ./.eslintrc.json ./src/app"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.25.0",
+    "babel-eslint": "^8.0.1",
     "babel-loader": "^7.1.1",
     "babel-plugin-array-includes": "^2.0.3",
     "babel-plugin-react-css-modules": "^3.0.1",
@@ -20,8 +22,12 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.4",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
     "extract-text-webpack-plugin": "^2.1.2",
-    "react-hot-loader": "^3.1.1",
     "style-loader": "^0.18.2",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
@@ -37,6 +43,7 @@
     "react-router": "^3.0.0",
     "react-router-redux": "^4.0.8",
     "react-toolbox": "^2.0.0-beta.12",
+    "react-hot-loader": "^3.1.1",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"
   }
