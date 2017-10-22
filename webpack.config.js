@@ -4,11 +4,11 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
   entry: [
     'react-hot-loader/patch',
-    './src/app/index.js'
+    './src/app/index.js',
   ],
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'build')
+    path: path.resolve(__dirname, 'build'),
   },
   resolve: {
     extensions: ['.js'],
@@ -17,7 +17,7 @@ module.exports = {
     rules: [
       {
         test: /\.(css|styl)$/,
-        use: ['style-loader', 'css-loader?minimize', 'stylus-loader'],
+        use: ['style-loader', 'css-loader?importLoader=1&modules&localIdentName=[name]__[local]___[hash:base64:5]', 'stylus-loader'],
         // use: ExtractTextPlugin.extract({
         //     fallback: 'style-loader',
         //     use: ['css-loader?minimize', 'stylus-loader']
@@ -26,8 +26,8 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: 'babel-loader'
-      }
+        use: 'babel-loader',
+      },
     ],
   },
   plugins: [
@@ -35,6 +35,6 @@ module.exports = {
   ],
   devServer: {
     port: 3000,
-    historyApiFallback: true
+    historyApiFallback: true,
   },
 };
