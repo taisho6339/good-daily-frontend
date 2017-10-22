@@ -8,7 +8,7 @@ const middlewares = [
 ];
 
 let middleware = applyMiddleware(...middlewares);
-// add the redux dev tools
+// Chrome拡張のReduxDevToolでDebugを行うための設定
 if (process.env.NODE_ENV !== 'production' && window.devToolsExtension) {
   middleware = compose(middleware, window.devToolsExtension());
 }
