@@ -7,7 +7,12 @@ const middlewares = [
   routerMiddleware(browserHistory)
 ];
 
-const middleware = applyMiddleware(...middlewares);
+let middleware = applyMiddleware(...middlewares);
+// add the redux dev tools
+if (process.env.NODE_ENV !== 'production' && window.devToolsExtension) {
+  middleware = compose(middleware, window.devToolsExtension());
+}
+
 const store = createStore(reducers, middleware);
 const history = syncHistoryWithStore(browserHistory, store);
 
