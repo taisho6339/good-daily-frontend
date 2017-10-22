@@ -1,10 +1,9 @@
 import React from 'react';
-import { render } from 'react-dom';
 import { Router, Route } from 'react-router';
-import { Provider } from "react-redux";
+import { Provider } from 'react-redux';
 import Root from './containers/Root';
 import AccountRegistration from './containers/AccountRegistration';
-import { history, store } from "./redux/store.js";
+import { history, store } from './redux/store';
 
 function Routing() {
   return (

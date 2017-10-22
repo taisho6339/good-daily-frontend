@@ -1,10 +1,10 @@
-import { createStore, applyMiddleware, compose } from "redux";
-import { browserHistory } from "react-router";
-import { syncHistoryWithStore, routerMiddleware } from "react-router-redux";
-import { reducers } from "./reducers/index";
+import { createStore, applyMiddleware, compose } from 'redux';
+import { browserHistory } from 'react-router';
+import { syncHistoryWithStore, routerMiddleware } from 'react-router-redux';
+import reducers from './reducers/index';
 
 const middlewares = [
-  routerMiddleware(browserHistory)
+  routerMiddleware(browserHistory),
 ];
 
 let middleware = applyMiddleware(...middlewares);

@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 function AccountRegistration() {
   return (
@@ -13,4 +13,6 @@ function AccountRegistration() {
 //   children: PropTypes.node
 // };
 
-export default AccountRegistration;
+export default connect(state => ({
+  ...state.routing,
+}))(AccountRegistration);
