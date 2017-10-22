@@ -17,11 +17,10 @@ module.exports = {
     rules: [
       {
         test: /\.(css|styl)$/,
-        use: ['style-loader', 'css-loader?importLoader=1&modules&localIdentName=[name]__[local]___[hash:base64:5]', 'stylus-loader'],
-        // use: ExtractTextPlugin.extract({
-        //     fallback: 'style-loader',
-        //     use: ['css-loader?minimize', 'stylus-loader']
-        // }),
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader?importLoader=1&modules&localIdentName=[name]__[local]___[hash:base64:5]', 'stylus-loader'],
+        }),
       },
       {
         test: /\.js$/,
