@@ -16,10 +16,10 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(css|styl)$/,
+        test: /\.(css|scss)$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader?importLoader=1&modules&localIdentName=[name]__[local]___[hash:base64:5]', 'stylus-loader'],
+          use: ['css-loader?importLoader=1&modules&localIdentName=[name]__[local]___[hash:base64:5]', 'sass-loader'],
         }),
       },
       {

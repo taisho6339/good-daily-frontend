@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import './AccountRegistration.scss';
 
 function AccountRegistration() {
   return (
-    <div>
+    <div styleName="content">
       <p>テストだよ</p>
     </div>
   );
