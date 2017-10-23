@@ -1,0 +1,13 @@
+@import "../../../constants/constants";
+
+.content {
+  background-color: $color-global-footer-background;
+  color: $color-global-footer-font-color;
+  padding: 15px;
+  font-size: 1.0rem;
+  text-align: center;
+}
+
+.note {
+  color: $color-global-footer-caption;
+}

@@ -4,6 +4,14 @@
 html,
 body {
   font-family: 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'メイリオ', 'Meiryo', 'sans-serif', 'Emoji';
+  font-size: 14px;
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  width: $container-width-size;
+  background-color: $color-container-background-white;
 }
 
 .application {
