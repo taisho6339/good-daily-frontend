@@ -1,0 +1,24 @@
+@import '../../../constants/constants';
+
+.content {
+  padding: 30px;
+  min-height: 500px;
+}
+
+.title {
+  margin-bottom: 60px;
+}
+
+.gender-icon-container {
+  display: flex;
+  width: 600px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.gender-icon {
+  width: 200px;
+  height: 240px;
+  margin-right: auto;
+  margin-left: auto;
+}
