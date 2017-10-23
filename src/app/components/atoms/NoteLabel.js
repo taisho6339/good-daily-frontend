@@ -5,10 +5,7 @@ import './NoteLabel.scss';
 function NoteLabel(props) {
   const { text, className } = props;
   return (
-    <small
-      styleName="note"
-      className={className}
-    >
+    <small className={className}>
       {text}
     </small>
   );
