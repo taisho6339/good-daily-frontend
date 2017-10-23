@@ -15,5 +15,6 @@ body {
 }
 
 .application {
-  background-color: $color-background-gray;
+  background-color: $color-application-background;
+  min-height: 100%;
 }

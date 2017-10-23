@@ -5,13 +5,13 @@ import NoteLabel from '../../atoms/NoteLabel';
 
 function GlobalFooter() {
   return (
-    <div styleName="content">
+    <footer styleName="content">
       <TextLabel text="Good-Buy! ©2017" />
       <NoteLabel
         styleName="note"
         text="createdBy taisho6339"
       />
-    </div>
+    </footer>
   );
 }
 
