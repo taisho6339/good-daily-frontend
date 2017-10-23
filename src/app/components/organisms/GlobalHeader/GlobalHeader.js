@@ -1,13 +1,18 @@
-import AppBar from 'react-toolbox/lib/app_bar';
 import React from 'react';
-import style from './GlobalHeader.scss';
+import TitleLabel from '../../atoms/TitleLabel';
+import './GlobalHeader.scss';
+import icon from '../../../constants/assets/app-icon.png';
 
 function GlobalHeader() {
   return (
-    <AppBar
-      theme={style}
-      title="Good-Buy!"
-    />
+    <header styleName="app-bar">
+      <img
+        styleName="app-icon"
+        src={icon}
+        alt="Good-Buy"
+      />
+      <TitleLabel text="Good-Buy" />
+    </header>
   );
 }
 
