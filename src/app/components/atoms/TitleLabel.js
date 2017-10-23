@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import './TextLabel.scss';
+import './TitleLabel.scss';
 
-function TextLabel(props) {
+function TitleLabel(props) {
   const { text, className } = props;
   return (
     <div className={className}>
@@ -14,13 +13,13 @@ function TextLabel(props) {
   );
 }
 
-TextLabel.propTypes = {
+TitleLabel.propTypes = {
   text: PropTypes.string.isRequired,
   className: PropTypes.string,
 };
 
-TextLabel.defaultProps = {
+TitleLabel.defaultProps = {
   className: null,
 };
 
-export default TextLabel;
+export default TitleLabel;
