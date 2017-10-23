@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Card } from 'material-ui/Card';
 import female from '../../../constants/assets/female.png';
 import male from '../../../constants/assets/male.png';
@@ -13,7 +14,8 @@ const imageButtonStyle = {
   marginLeft: 'auto',
 };
 
-function GenderSelect() {
+function GenderSelect(props) {
+  const { onSelected } = props;
   return (
     <Card styleName="content">
       <TitleLabel
@@ -22,10 +24,12 @@ function GenderSelect() {
       />
       <div styleName="gender-icon-container">
         <RaisedImageButton
+          onClick={onSelected}
           styles={imageButtonStyle}
           imageUrl={male}
         />
         <RaisedImageButton
+          onClick={onSelected}
           styles={imageButtonStyle}
           imageUrl={female}
         />
@@ -33,5 +37,13 @@ function GenderSelect() {
     </Card>
   );
 }
+
+GenderSelect.propTypes = {
+  onSelected: PropTypes.func,
+};
+GenderSelect.defaultProps = {
+  onSelected: () => {
+  },
+};
 
 export default GenderSelect;
