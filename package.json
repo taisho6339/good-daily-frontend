@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server --hot --progress",
+    "start": "webpack-dev-server --hot --progress --config ./webpack.config.dev.js",
     "eslint": "eslint --ext js -c ./.eslintrc.json ./src/app"
   },
   "keywords": [],
@@ -28,11 +28,13 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.4.0",
     "extract-text-webpack-plugin": "^2.1.2",
+    "file-loader": "^1.1.5",
     "node-sass": "^4.5.3",
     "postcss-scss": "^1.0.2",
     "sanitize.css": "^5.0.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
+    "url-loader": "^0.6.2",
     "webpack": "^3.1.0",
     "webpack-dev-server": "^2.9.2"
   },
