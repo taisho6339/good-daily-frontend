@@ -6,7 +6,7 @@ import NoteLabel from '../../atoms/NoteLabel';
 function GlobalFooter() {
   return (
     <footer styleName="content">
-      <TextLabel text="Good-Buy! ©2017" />
+      <TextLabel text="グッデリ! ©2017" />
       <NoteLabel
         styleName="note"
         text="createdBy taisho6339"
