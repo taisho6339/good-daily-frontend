@@ -1,7 +1,7 @@
 import React from 'react';
 import './GlobalFooter.scss';
-import TextLabel from '../../atoms/TextLabel';
-import NoteLabel from '../../atoms/NoteLabel';
+import TextLabel from '../../atoms/TextLabel/TextLabel';
+import NoteLabel from '../../atoms/NoteLabel/NoteLabel';
 
 function GlobalFooter() {
   return (

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import female from '../../../constants/assets/female.png';
 import male from '../../../constants/assets/male.png';
-import TitleLabel from '../../atoms/TitleLabel';
+import TitleLabel from '../../atoms/TitleLabel/TitleLabel';
 import RaisedImageButton from '../RaisedImageButton/RaisedImageButton';
 import './GenderSelect.scss';
 

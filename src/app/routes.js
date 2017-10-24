@@ -2,7 +2,7 @@ import React from 'react';
 import { Router, Route } from 'react-router';
 import { Provider } from 'react-redux';
 import Root from './containers/Root';
-import AccountRegistration from './containers/AccountRegistration';
+import AccountRegistration from './containers/AccountRegistration/AccountRegistration';
 import { history, store } from './redux/store';
 
 function Routing() {
