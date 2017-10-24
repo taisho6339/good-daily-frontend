@@ -24,12 +24,12 @@ function GenderSelect(props) {
       />
       <div styleName="gender-icon-container">
         <RaisedImageButton
-          onClick={onSelected}
+          onClick={() => onSelected('MALE')}
           styles={imageButtonStyle}
           imageUrl={male}
         />
         <RaisedImageButton
-          onClick={onSelected}
+          onClick={() => onSelected('FEMALE')}
           styles={imageButtonStyle}
           imageUrl={female}
         />
