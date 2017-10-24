@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card } from 'material-ui/Card';
 import female from '../../../constants/assets/female.png';
 import male from '../../../constants/assets/male.png';
 import TitleLabel from '../../atoms/TitleLabel';
-import RaisedImageButton from '../../molecules/RaisedImageButton/RaisedImageButton';
+import RaisedImageButton from '../RaisedImageButton/RaisedImageButton';
 import './GenderSelect.scss';
 
 const imageButtonStyle = {
@@ -17,7 +16,7 @@ const imageButtonStyle = {
 function GenderSelect(props) {
   const { onSelected } = props;
   return (
-    <Card styleName="content">
+    <div>
       <TitleLabel
         styleName="title"
         text="あなたの性別を教えてください"
@@ -34,7 +33,7 @@ function GenderSelect(props) {
           imageUrl={female}
         />
       </div>
-    </Card>
+    </div>
   );
 }
 
