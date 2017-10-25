@@ -7,28 +7,56 @@ import {
   Stepper,
   StepLabel,
 } from 'material-ui/Stepper';
-import FlatButton from 'material-ui/FlatButton';
 import SwipeableViews from 'react-swipeable-views';
 import { updateRegistrationForm } from '../../../redux/actions/registrationAction';
 import GenderSelect from '../../molecules/GenderSelect/GenderSelect';
 import BirthdaySelect from '../../molecules/BirthdaySelect/BirthdaySelect';
 import './RegistrationStepper.scss';
 
-function renderStepper(stepIndex) {
+const INDEX_GENDER = 0;
+const INDEX_BIRTHDAY = 1;
+const INDEX_POSTAL_CODE = 2;
+const INDEX_TEL_MAIL = 3;
+
+const REGISTRATION_STEPS = [
+  {
+    index: INDEX_GENDER,
+    label: '性別',
+  },
+  {
+    index: INDEX_BIRTHDAY,
+    label: '生年月日',
+  },
+  {
+    index: INDEX_POSTAL_CODE,
+    label: '郵便番号',
+  },
+  {
+    index: INDEX_TEL_MAIL,
+    label: '連絡先',
+  },
+];
+
+function renderStepper(stepIndex, boundActions) {
   return (
     <Stepper activeStep={stepIndex}>
-      <Step>
-        <StepLabel>性別</StepLabel>
-      </Step>
-      <Step>
-        <StepLabel>生年月日</StepLabel>
-      </Step>
-      <Step>
-        <StepLabel>〒郵便番号</StepLabel>
-      </Step>
-      <Step>
-        <StepLabel>連絡先</StepLabel>
-      </Step>
+      {REGISTRATION_STEPS.map((step) => {
+        return (
+          <Step
+            key={step.index}
+            onClick={() => {
+              if (stepIndex <= step.index) {
+                return;
+              }
+              boundActions.updateRegistrationForm({
+                stepIndex: step.index,
+              });
+            }}
+          >
+            <StepLabel>{step.label}</StepLabel>
+          </Step>
+        );
+      })}
     </Stepper>
   );
 }
@@ -54,24 +82,14 @@ function renderFormComponent(stepIndex, boundActions) {
             birthday: date.getTime(),
           });
         }}
+        onClickNext={() => {
+          // 入力の仕方考える
+          boundActions.updateRegistrationForm({
+            stepIndex: stepIndex + 1,
+          });
+        }}
       />
     </SwipeableViews>
-  );
-}
-
-function renderBackButton(stepIndex, boundActions) {
-  return (
-    <FlatButton
-      label="戻る"
-      onClick={() => {
-        if (stepIndex <= 0) {
-          return;
-        }
-        boundActions.updateRegistrationForm({
-          stepIndex: stepIndex - 1,
-        });
-      }}
-    />
   );
 }
 
@@ -80,9 +98,8 @@ function RegistrationStepper(props) {
   const boundActions = bindActionCreators({ updateRegistrationForm }, dispatch);
   return (
     <div>
-      {renderStepper(stepIndex)}
+      {renderStepper(stepIndex, boundActions)}
       {renderFormComponent(stepIndex, boundActions)}
-      {renderBackButton(stepIndex, boundActions)}
     </div>
   );
 }

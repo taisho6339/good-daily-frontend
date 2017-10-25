@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card } from 'material-ui/Card';
+import RaisedButton from 'material-ui/RaisedButton';
 import DatePicker from 'material-ui/DatePicker';
 import TitleLabel from '../../atoms/TitleLabel/TitleLabel';
 import './BirthdaySelect.scss';
 
 function BirthdaySelect(props) {
-  const { birthday, onSelected } = props;
+  const { birthday, onSelected, onClickNext } = props;
   return (
     <Card
       styleName="content"
@@ -22,6 +23,13 @@ function BirthdaySelect(props) {
         onChange={(event, date) => {
           onSelected(date);
         }}
+        styleName="date-picker"
+      />
+      <RaisedButton
+        label="次へ"
+        onClick={() => {
+          onClickNext();
+        }}
       />
     </Card>
   );
@@ -29,10 +37,13 @@ function BirthdaySelect(props) {
 
 BirthdaySelect.propTypes = {
   onSelected: PropTypes.func,
+  onClickNext: PropTypes.func,
   birthday: PropTypes.number,
 };
 BirthdaySelect.defaultProps = {
   onSelected: () => {
+  },
+  onClickNext: () => {
   },
   birthday: 0,
 };
