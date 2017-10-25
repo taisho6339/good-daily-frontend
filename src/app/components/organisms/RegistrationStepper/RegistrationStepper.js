@@ -2,15 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Card } from 'material-ui/Card';
 import {
   Step,
   Stepper,
   StepLabel,
 } from 'material-ui/Stepper';
 import FlatButton from 'material-ui/FlatButton';
+import SwipeableViews from 'react-swipeable-views';
 import { updateRegistrationForm } from '../../../redux/actions/registrationAction';
 import GenderSelect from '../../molecules/GenderSelect/GenderSelect';
+import BirthdaySelect from '../../molecules/BirthdaySelect/BirthdaySelect';
 import './RegistrationStepper.scss';
 
 function renderStepper(stepIndex) {
@@ -33,41 +34,29 @@ function renderStepper(stepIndex) {
 }
 
 function renderFormComponent(stepIndex, boundActions) {
-  const registrationStepComponents = [
-    (<GenderSelect
-      onSelected={(gender) => {
-        boundActions.updateRegistrationForm({
-          stepIndex: stepIndex + 1,
-          gender,
-        });
-      }}
-    />),
-    (<GenderSelect
-      onSelected={(gender) => {
-        boundActions.updateRegistrationForm({
-          stepIndex: stepIndex + 1,
-          gender,
-        });
-      }}
-    />),
-    (<GenderSelect
-      onSelected={(gender) => {
-        boundActions.updateRegistrationForm({
-          stepIndex: stepIndex + 1,
-          gender,
-        });
-      }}
-    />),
-    (<GenderSelect
-      onSelected={(gender) => {
-        boundActions.updateRegistrationForm({
-          stepIndex: stepIndex + 1,
-          gender,
-        });
-      }}
-    />),
-  ];
-  return registrationStepComponents[stepIndex];
+  return (
+    <SwipeableViews
+      styleName="swipe-container"
+      index={stepIndex}
+    >
+      <GenderSelect
+        onSelected={(gender) => {
+          boundActions.updateRegistrationForm({
+            stepIndex: stepIndex + 1,
+            gender,
+          });
+        }}
+      />
+      <BirthdaySelect
+        onSelected={(date) => {
+          boundActions.updateRegistrationForm({
+            stepIndex,
+            birthday: date.getTime(),
+          });
+        }}
+      />
+    </SwipeableViews>
+  );
 }
 
 function renderBackButton(stepIndex, boundActions) {
@@ -92,10 +81,8 @@ function RegistrationStepper(props) {
   return (
     <div>
       {renderStepper(stepIndex)}
-      <Card styleName="content">
-        {renderFormComponent(stepIndex, boundActions)}
-        {renderBackButton(stepIndex, boundActions)}
-      </Card>
+      {renderFormComponent(stepIndex, boundActions)}
+      {renderBackButton(stepIndex, boundActions)}
     </div>
   );
 }
