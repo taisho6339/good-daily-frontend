@@ -4,11 +4,12 @@
   background-color: $color-global-footer-background;
   color: $color-global-footer-font-color;
   padding: 15px;
-  font-size: 1.0rem;
+  font-size: 0.8rem;
   text-align: center;
   position: fixed;
   bottom: 0;
-  width: 100%
+  width: 100%;
+  height: 60px;
 }
 
 .note {
