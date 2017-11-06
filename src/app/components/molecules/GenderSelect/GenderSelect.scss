@@ -1,18 +1,29 @@
 @import '../../../constants/constants';
 
-.content {
-  padding: 30px;
-  height: 430px;
-}
-
-.title {
-  margin-bottom: 60px;
-}
-
 .gender-icon-container {
   display: flex;
-  width: 600px;
-  margin-right: auto;
+  padding: 20px;
+  width: 100%;
+  height: 50%;
+  justify-content: center;
+  align-items: center;
   margin-left: auto;
-  margin-bottom: 20px;
+  margin-right: auto;
+}
+
+.gender-icon {
+  width: 120px;
+  height: 120px;
+}
+
+.male-icon {
+  @extend .gender-icon;
+  margin-right: 5px;
+  margin-left: auto;
+}
+
+.female-icon {
+  @extend .gender-icon;
+  margin-right: auto;
+  margin-left: 5px;
 }
