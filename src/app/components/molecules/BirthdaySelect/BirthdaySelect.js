@@ -3,27 +3,22 @@ import PropTypes from 'prop-types';
 import { Card } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import DatePicker from 'material-ui/DatePicker';
-import TitleLabel from '../../atoms/TitleLabel/TitleLabel';
 import './BirthdaySelect.scss';
 
 function BirthdaySelect(props) {
   const { birthday, onSelected, onClickNext } = props;
   return (
     <Card
-      styleName="content"
+      styleName="container"
     >
-      <TitleLabel
-        styleName="title"
-        text="あなたの生年月日を教えてください"
-      />
       <DatePicker
+        styleName="date-picker"
         autoOk
         floatingLabelText="生年月日"
         defaultDate={new Date(birthday)}
         onChange={(event, date) => {
           onSelected(date);
         }}
-        styleName="date-picker"
       />
       <RaisedButton
         label="次へ"
