@@ -4,6 +4,7 @@ import { Card } from 'material-ui/Card';
 import female from '../../../constants/assets/female.png';
 import male from '../../../constants/assets/male.png';
 import ImageButton from '../../atoms/ImageButton/ImageButton';
+import TitleLabel from '../../atoms/TitleLabel/TitleLabel';
 import './GenderSelect.scss';
 
 function GenderSelect(props) {
@@ -13,6 +14,7 @@ function GenderSelect(props) {
       className={className}
       styleName="gender-icon-container"
     >
+      <TitleLabel text="あなたの性別を教えてください" />
       <ImageButton
         styleName="male-icon"
         onClick={() => onSelected('MALE')}
