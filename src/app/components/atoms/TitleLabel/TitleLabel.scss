@@ -1,6 +1,12 @@
+@import "../../../constants/constants";
+
 .text-label {
   margin: 0;
   font-weight: bold;
   font-size: 1.0rem;
   padding: 5px;
+
+  @media (min-width: $breakpoint-width) {
+    font-size: 1.2rem;
+  }
 }

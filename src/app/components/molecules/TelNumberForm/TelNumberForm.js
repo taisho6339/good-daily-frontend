@@ -11,15 +11,17 @@ function TelNumberForm(props) {
   return (
     <Card styleName="container">
       <TitleLabel text="電話番号を入力してください" />
-      <TextField
-        styleName="tel-input"
-        name="telNumber"
-        multiLine={false}
-        hintText="ハイフンなし"
-        onBlur={(element) => {
-          onBlur(element.target.value);
-        }}
-      />
+      <div>
+        <TextField
+          styleName="tel-input"
+          name="telNumber"
+          multiLine={false}
+          hintText="ハイフンなし"
+          onBlur={(element) => {
+            onBlur(element.target.value);
+          }}
+        />
+      </div>
       <RaisedButton
         label="次へ"
         onClick={() => {

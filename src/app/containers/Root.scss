@@ -11,6 +11,9 @@ body {
   margin-right: auto;
   margin-left: auto;
   width: 90%;
+  @media screen and (min-width: $breakpoint-width) {
+    width: 60%;
+  }
 }
 
 .application {

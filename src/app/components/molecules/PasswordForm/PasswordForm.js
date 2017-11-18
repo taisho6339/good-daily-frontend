@@ -11,15 +11,17 @@ function PasswordForm(props) {
   return (
     <Card styleName="container">
       <TitleLabel text="パスワードを入力してください" />
-      <TextField
-        styleName="pass-input"
-        name="password"
-        multiLine={false}
-        hintText="6文字以上20文字以内の英数文字"
-        onBlur={(element) => {
-          onBlur(element.target.value);
-        }}
-      />
+      <div>
+        <TextField
+          styleName="pass-input"
+          name="password"
+          multiLine={false}
+          hintText="6文字以上20文字以内の英数文字"
+          onBlur={(element) => {
+            onBlur(element.target.value);
+          }}
+        />
+      </div>
       <RaisedButton
         label="次へ"
         onClick={() => {

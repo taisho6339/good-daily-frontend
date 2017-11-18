@@ -11,15 +11,17 @@ function PostalCodeForm(props) {
   return (
     <Card styleName="container">
       <TitleLabel text="郵便番号を入力してください" />
-      <TextField
-        styleName="code-input"
-        name="postalCode"
-        multiLine={false}
-        hintText="ハイフンなし"
-        onBlur={(element) => {
-          onBlur(element.target.value);
-        }}
-      />
+      <div>
+        <TextField
+          styleName="code-input"
+          name="postalCode"
+          multiLine={false}
+          hintText="ハイフンなし"
+          onBlur={(element) => {
+            onBlur(element.target.value);
+          }}
+        />
+      </div>
       <RaisedButton
         label="次へ"
         onClick={() => {

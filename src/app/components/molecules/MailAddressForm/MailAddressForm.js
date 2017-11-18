@@ -11,15 +11,17 @@ function MailAddressForm(props) {
   return (
     <Card styleName="container">
       <TitleLabel text="メールアドレスを入力してください" />
-      <TextField
-        styleName="address-input"
-        name="mailAddress"
-        multiLine={false}
-        hintText="6文字以上20文字以内の英数字"
-        onBlur={(element) => {
-          onBlur(element.target.value);
-        }}
-      />
+      <div>
+        <TextField
+          styleName="address-input"
+          name="mailAddress"
+          multiLine={false}
+          hintText="6文字以上20文字以内の英数字"
+          onBlur={(element) => {
+            onBlur(element.target.value);
+          }}
+        />
+      </div>
       <RaisedButton
         label="次へ"
         onClick={() => {

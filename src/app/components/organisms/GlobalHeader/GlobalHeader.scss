@@ -10,7 +10,7 @@
   height: 60px;
   padding-left: 15px;
 
-  @media (min-width: $mobile-width) {
+  @media (min-width: $breakpoint-width) {
     height: 80px;
   }
 }
