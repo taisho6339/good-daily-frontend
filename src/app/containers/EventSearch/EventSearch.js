@@ -3,11 +3,10 @@ import PropTypes from 'prop-types';
 import { Card } from 'material-ui/Card';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import AutoComplete from 'material-ui/AutoComplete';
-import RaisedButton from 'material-ui/RaisedButton';
+import TextField from 'material-ui/TextField';
 import TitleLabel from '../../components/atoms/TitleLabel/TitleLabel';
 import TextLabel from '../../components/atoms/TextLabel/TextLabel';
-import { searchEvent, inputSearchKeyword } from '../../redux/actions/eventActions';
+import { searchEvent } from '../../redux/actions/eventActions';
 import './EventSearch.scss';
 
 function renderResults(results) {
@@ -26,30 +25,23 @@ function renderResults(results) {
 function EventSearch(props) {
   const {
     keyword,
-    suggestKeywords,
     dispatch,
     results,
   } = props;
-  const boundActions = bindActionCreators({ searchEvent, inputSearchKeyword }, dispatch);
+  const boundActions = bindActionCreators({ searchEvent }, dispatch);
 
   return (
     <div>
       <Card styleName="content">
         <TitleLabel text="ライブ・コンサートを検索" />
-        <AutoComplete
+        <TextField
           styleName="search-box"
-          searchText={keyword}
-          onUpdateInput={(searchKey) => {
-            //TODO: サジェスト
-            boundActions.inputSearchKeyword(searchKey);
-          }}
-          dataSource={suggestKeywords}
-        />
-        <RaisedButton
-          primary
-          label="検索"
-          onClick={() => {
-            boundActions.searchEvent(keyword);
+          name="artist-name"
+          multiLine={false}
+          hintText="アーティスト名を入力してください"
+          value={keyword}
+          onChange={(e) => {
+            boundActions.searchEvent(e.target.value);
           }}
         />
       </Card>
@@ -64,12 +56,7 @@ EventSearch.propTypes = {
     id: PropTypes.number,
     name: PropTypes.string,
   })).isRequired,
-  suggestKeywords: PropTypes.arrayOf(PropTypes.string),
   dispatch: PropTypes.func.isRequired,
-};
-
-EventSearch.defaultProps = {
-  suggestKeywords: ['嵐', 'fhana'],
 };
 
 export default connect(state => ({

@@ -1,14 +1,4 @@
 export const SEARCH_EVENT = 'SEARCH_EVENT';
-export const INPUT_SEARCH_KEYWORD = 'INPUT_SEARCH_KEYWORD';
-
-export const inputSearchKeyword = (keyword) => {
-  return ({
-    type: INPUT_SEARCH_KEYWORD,
-    payload: {
-      keyword,
-    },
-  });
-};
 
 export const searchEvent = (keyword) => {
   //TODO: 通信しにいく
@@ -23,11 +13,11 @@ export const searchEvent = (keyword) => {
         },
         {
           id: 2,
-          name: 'fhana',
+          name: '嵐の夜に',
         },
         {
           id: 3,
-          name: 'UNISON SQUARE GARDEN',
+          name: '嵐の中で',
         },
       ],
     },
