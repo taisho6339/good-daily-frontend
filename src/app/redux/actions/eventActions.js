@@ -1,9 +1,9 @@
-export const SEARCH_EVENT = 'SEARCH_EVENT';
+export const SEARCH_ARTIST = 'SEARCH_ARTIST';
 
-export const searchEvent = (keyword) => {
+export const searchArtist = (keyword) => {
   //TODO: 通信しにいく
   return ({
-    type: SEARCH_EVENT,
+    type: SEARCH_ARTIST,
     payload: {
       keyword,
       results: [

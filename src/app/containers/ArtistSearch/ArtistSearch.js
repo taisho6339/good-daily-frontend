@@ -6,8 +6,8 @@ import { bindActionCreators } from 'redux';
 import TextField from 'material-ui/TextField';
 import TitleLabel from '../../components/atoms/TitleLabel/TitleLabel';
 import TextLabel from '../../components/atoms/TextLabel/TextLabel';
-import { searchEvent } from '../../redux/actions/eventActions';
-import './EventSearch.scss';
+import { searchArtist } from '../../redux/actions/eventActions';
+import './ArtistSearch.scss';
 
 function renderResults(results) {
   return results.map((item) => {
@@ -28,12 +28,12 @@ function EventSearch(props) {
     dispatch,
     results,
   } = props;
-  const boundActions = bindActionCreators({ searchEvent }, dispatch);
+  const boundActions = bindActionCreators({ searchArtist }, dispatch);
 
   return (
     <div>
       <Card styleName="content">
-        <TitleLabel text="ライブ・コンサートを検索" />
+        <TitleLabel text="アーティストを検索" />
         <TextField
           styleName="search-box"
           name="artist-name"
@@ -41,7 +41,8 @@ function EventSearch(props) {
           hintText="アーティスト名を入力してください"
           value={keyword}
           onChange={(e) => {
-            boundActions.searchEvent(e.target.value);
+            //TODO: 変更のたびにリクエスト送るとやばそうなので要チューニング検討
+            boundActions.searchArtist(e.target.value);
           }}
         />
       </Card>

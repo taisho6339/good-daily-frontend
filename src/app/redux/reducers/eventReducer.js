@@ -1,6 +1,6 @@
 import { handleActions } from 'redux-actions';
 import {
-  SEARCH_EVENT,
+  SEARCH_ARTIST,
 } from './../actions/eventActions';
 
 const initialState = {
@@ -9,7 +9,7 @@ const initialState = {
 };
 
 const eventReducer = handleActions({
-  [SEARCH_EVENT]: (state, { payload }) => ({
+  [SEARCH_ARTIST]: (state, { payload }) => ({
     ...state,
     ...payload,
   }),
