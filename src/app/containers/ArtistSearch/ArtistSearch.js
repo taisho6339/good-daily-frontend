@@ -22,7 +22,7 @@ function renderResults(results) {
   });
 }
 
-function EventSearch(props) {
+function ArtistSearch(props) {
   const {
     keyword,
     dispatch,
@@ -51,7 +51,7 @@ function EventSearch(props) {
   );
 }
 
-EventSearch.propTypes = {
+ArtistSearch.propTypes = {
   keyword: PropTypes.string.isRequired,
   results: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
@@ -62,4 +62,4 @@ EventSearch.propTypes = {
 
 export default connect(state => ({
   ...state.event,
-}))(EventSearch);
+}))(ArtistSearch);
