@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import Root from './containers/Root';
 import AccountRegistration from './containers/AccountRegistration/AccountRegistration';
 import ArtistSearch from './containers/ArtistSearch/ArtistSearch';
+import LiveList from './containers/LiveList/LiveList';
 import { history, store } from './redux/store';
 
 function Routing() {
@@ -13,6 +14,7 @@ function Routing() {
         <Route path="/" component={Root}>
           <Route path="/registration" component={AccountRegistration} />
           <Route path="/artistSearch" component={ArtistSearch} />
+          <Route path="/liveList/:artistId" component={LiveList} />
         </Route>
       </Router>
     </Provider>

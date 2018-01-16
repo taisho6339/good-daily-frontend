@@ -2,19 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Card } from 'material-ui/Card';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import { bindActionCreators } from 'redux';
+import { push } from 'react-router-redux';
 import TextField from 'material-ui/TextField';
 import TitleLabel from '../../components/atoms/TitleLabel/TitleLabel';
 import TextLabel from '../../components/atoms/TextLabel/TextLabel';
 import { searchArtist } from '../../redux/actions/eventActions';
 import './ArtistSearch.scss';
 
-function renderResults(results) {
+function renderResults(results, boundActions) {
+  if (!results) {
+    return null;
+  }
   return results.map((item) => {
     return (
       <Card
-        styleName="result-card"
         key={item.id}
+        styleName="result-card"
+        onClick={() => {
+          boundActions.push(`/liveList/${item.id}`);
+        }}
       >
         <TextLabel text={item.name} />
       </Card>
@@ -28,7 +36,7 @@ function ArtistSearch(props) {
     dispatch,
     results,
   } = props;
-  const boundActions = bindActionCreators({ searchArtist }, dispatch);
+  const boundActions = bindActionCreators({ searchArtist, push }, dispatch);
 
   return (
     <div>
@@ -46,20 +54,25 @@ function ArtistSearch(props) {
           }}
         />
       </Card>
-      {renderResults(results)}
+      {renderResults(results, boundActions)}
     </div>
   );
 }
 
 ArtistSearch.propTypes = {
-  keyword: PropTypes.string.isRequired,
+  keyword: PropTypes.string,
   results: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
-  })).isRequired,
+  })),
   dispatch: PropTypes.func.isRequired,
 };
 
+ArtistSearch.defaultProps = {
+  keyword: '',
+  results: null,
+};
+
 export default connect(state => ({
-  ...state.event,
+  ...state.event.artistSearch,
 }))(ArtistSearch);
