@@ -1,5 +1,6 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: [
@@ -39,6 +40,12 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin('style.css'),
+    new HtmlWebpackPlugin({
+      template: './index.ejs',
+      inject: false,
+      baseUrl: '',
+      hashTime: new Date().getTime(),
+    }),
   ],
   devServer: {
     port: 3000,

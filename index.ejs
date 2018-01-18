@@ -7,11 +7,11 @@
     <meta http-equiv="expires" content="0" />
     <meta property="og:title" content="グッデリ!" />
     <meta property="og:description" content="グッズ販売のマッチング" />
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="<%= htmlWebpackPlugin.options.baseUrl %>/style.css?<%= htmlWebpackPlugin.options.hashTime %>">
 </head>
 <body>
 <div id="root">
 </div>
-<script src="bundle.js"></script>
+<script src="<%= htmlWebpackPlugin.options.baseUrl %>/bundle.js?<%= htmlWebpackPlugin.options.hashTime %>"></script>
 </body>
 </html>
