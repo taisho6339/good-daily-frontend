@@ -2,6 +2,8 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const CONTEXT_ROOT = '';
+
 module.exports = {
   entry: [
     'react-hot-loader/patch',
@@ -32,8 +34,8 @@ module.exports = {
         test: /\.(png|jpg|svg|gif)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'url-loader',
-          options: { limit: 8192 },
+          loader: `file-loader?name=${CONTEXT_ROOT}/assets/[hash:20].[ext]`,
+          options: {},
         },
       },
     ],
@@ -43,12 +45,13 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './index.ejs',
       inject: false,
-      baseUrl: '',
+      baseUrl: CONTEXT_ROOT,
       hashTime: new Date().getTime(),
     }),
   ],
   devServer: {
     port: 3000,
     historyApiFallback: true,
+    contentBase: path.resolve(__dirname, 'build'),
   },
 };
