@@ -3,15 +3,11 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Card } from 'material-ui/Card';
-import CircularProgress from 'material-ui/CircularProgress';
 import TitleLabel from '../../components/atoms/TitleLabel/TitleLabel';
 import TextLabel from '../../components/atoms/TextLabel/TextLabel';
+import Loading from '../../components/atoms/Loading/Loading';
 import { fetchLiveList } from '../../redux/actions/eventActions';
 import './LiveList.scss';
-
-function Loading() {
-  return <CircularProgress size={60} thickness={7} />;
-}
 
 function Live(live) {
   return (
@@ -39,16 +35,24 @@ function LiveList(props) {
   );
 }
 
+function LiveLoading() {
+  return (
+    <div styleName="content">
+      <Loading />
+    </div>
+  );
+}
+
 function LiveListProxy(props) {
   const {
     artistName,
-    params,
     dispatch,
+    params,
   } = props;
   const boundActions = bindActionCreators({ fetchLiveList }, dispatch);
   if (!artistName) {
     boundActions.fetchLiveList(params.artistId);
-    return <Loading />;
+    return <LiveLoading />;
   }
   return <LiveList {...props} />;
 }
