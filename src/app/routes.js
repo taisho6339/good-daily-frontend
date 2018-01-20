@@ -12,9 +12,9 @@ function Routing() {
     <Provider store={store}>
       <Router onUpdate={() => window.scrollTo(0, 0)} history={history}>
         <Route path="/" component={Root}>
-          <Route path="/registration" component={AccountRegistration} />
-          <Route path="/artistSearch" component={ArtistSearch} />
-          <Route path="/liveList/:artistId" component={LiveList} />
+          <Route path="registration" component={AccountRegistration} />
+          <Route path="artistSearch" component={ArtistSearch} />
+          <Route path="liveList/:artistId" component={LiveList} />
         </Route>
       </Router>
     </Provider>
